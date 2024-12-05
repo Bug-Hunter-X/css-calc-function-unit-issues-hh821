@@ -1,0 +1,18 @@
+A more reliable approach is to avoid mixing percentage and other units directly within the `calc()` function. Instead, consider using a more consistent unit system, such as setting the parent's width explicitly and then using only pixels or only percentages within the calculation:
+
+```css
+.parent {
+  width: 800px; /* Explicitly set the parent's width */
+}
+
+.container {
+  width: calc(50% - 10px);
+}
+
+/* Or, avoid pixels entirely */
+.container {
+  width: 490px; /* 50% - 10px of 800px */
+}
+```
+
+If you must use percentages and other units, ensure the parent's width is explicitly defined and is not dynamically determined. Otherwise, you may encounter unexpected results across different browsers or situations.  Consider using JavaScript to dynamically calculate the correct width based on the parent element's width if a dynamic solution is needed.
